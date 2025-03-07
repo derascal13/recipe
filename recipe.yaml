@@ -5,35 +5,35 @@ description: "FiveM Full RP Server using ND Core & OX Resources"
 
 tasks:
   - name: "Start Database"
-    action: run
-    data: "start ox_mysql"
+    action: exec
+    cmd: "ensure ox_mysql"
 
   - name: "Load Core Scripts"
-    action: run
-    data: |
+    action: exec
+    cmd: |
       ensure nd_core
       ensure ox_lib
       ensure ox_target
       ensure ox_inventory
 
   - name: "Load Character & UI System"
-    action: run
-    data: |
+    action: exec
+    cmd: |
       ensure nd_characters
       ensure nd_appearance
       ensure nd_spawn
       ensure nd_hud
 
   - name: "Load Economy & Business"
-    action: run
-    data: |
+    action: exec
+    cmd: |
       ensure nd_banking
       ensure nd_cityhall
       ensure nd_management
 
   - name: "Load Job System"
-    action: run
-    data: |
+    action: exec
+    cmd: |
       ensure nd_jobs
       ensure nd_vehicleshop
       ensure nd_police
@@ -42,8 +42,8 @@ tasks:
       ensure nd_mafia
 
   - name: "Load Crime & Heist System"
-    action: run
-    data: |
+    action: exec
+    cmd: |
       ensure nd_drugs
       ensure nd_prison
       ensure nd_robbery
@@ -51,19 +51,19 @@ tasks:
       ensure nd_weaponcraft
 
   - name: "Load Vehicle & Fuel System"
-    action: run
-    data: |
+    action: exec
+    cmd: |
       ensure nd_garages
       ensure nd_fuel
 
   - name: "Load Miscellaneous Features"
-    action: run
-    data: |
+    action: exec
+    cmd: |
       ensure easyadmin
       ensure nd_logs
       ensure nd_animations
       ensure dpemotes
 
   - name: "Server Ready"
-    action: run
-    data: "echo Server has been started successfully!"
+    action: exec
+    cmd: "echo Server has been started successfully!"
