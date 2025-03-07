@@ -1,69 +1,173 @@
-name: "FiveM RP Server - ND Core"
-author: "YourName"
-version: "1.0"
-description: "FiveM Full RP Server using ND Core & OX Resources"
+$engine: 3
+$minFxVersion: 7290
+$onesync: on
+name: nd_core
+version: 1.0.0
+author: YourName
+description: The official recipe for ND Core.
 
 tasks:
-  - name: "Start Database"
-    action: exec
-    cmd: "ensure ox_mysql"
+  ## Persiapan Recipe
+  - action: connect_database
 
-  - name: "Load Core Scripts"
-    action: exec
-    cmd: |
-      ensure nd_core
-      ensure ox_lib
-      ensure ox_target
-      ensure ox_inventory
+  ## Default CFX Resources
+  - action: download_github
+    src: https://github.com/citizenfx/cfx-server-data
+    ref: master
+    subpath: resources
+    dest: ./resources/[cfx]
 
-  - name: "Load Character & UI System"
-    action: exec
-    cmd: |
-      ensure nd_characters
-      ensure nd_appearance
-      ensure nd_spawn
-      ensure nd_hud
+  ## ND Core
+  - action: download_file
+    url: https://github.com/ND-Framework/nd_core/releases/latest/download/nd_core.zip
+    path: ./tmp/nd_core.zip
+  - action: unzip
+    src: ./tmp/nd_core.zip
+    dest: ./resources/[nd]
 
-  - name: "Load Economy & Business"
-    action: exec
-    cmd: |
-      ensure nd_banking
-      ensure nd_cityhall
-      ensure nd_management
+  - action: query_database
+    file: ./resources/[nd]/nd_core/sql/install.sql
 
-  - name: "Load Job System"
-    action: exec
-    cmd: |
-      ensure nd_jobs
-      ensure nd_vehicleshop
-      ensure nd_police
-      ensure nd_ambulance
-      ensure nd_gangs
-      ensure nd_mafia
+  ## OX MySQL
+  - action: download_file
+    url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
+    path: ./tmp/oxmysql.zip
+  - action: unzip
+    src: ./tmp/oxmysql.zip
+    dest: ./resources/[ox]
 
-  - name: "Load Crime & Heist System"
-    action: exec
-    cmd: |
-      ensure nd_drugs
-      ensure nd_prison
-      ensure nd_robbery
-      ensure nd_heists
-      ensure nd_weaponcraft
+  ## OX Library
+  - action: download_file
+    url: https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip
+    path: ./tmp/ox_lib.zip
+  - action: unzip
+    src: ./tmp/ox_lib.zip
+    dest: ./resources/[ox]
 
-  - name: "Load Vehicle & Fuel System"
-    action: exec
-    cmd: |
-      ensure nd_garages
-      ensure nd_fuel
+  ## OX Inventory
+  - action: download_file
+    url: https://github.com/overextended/ox_inventory/releases/latest/download/ox_inventory.zip
+    path: ./tmp/ox_inventory.zip
+  - action: unzip
+    src: ./tmp/ox_inventory.zip
+    dest: ./resources/[ox]
 
-  - name: "Load Miscellaneous Features"
-    action: exec
-    cmd: |
-      ensure easyadmin
-      ensure nd_logs
-      ensure nd_animations
-      ensure dpemotes
+  ## OX Target
+  - action: download_file
+    url: https://github.com/overextended/ox_target/releases/latest/download/ox_target.zip
+    path: ./tmp/ox_target.zip
+  - action: unzip
+    src: ./tmp/ox_target.zip
+    dest: ./resources/[ox]
 
-  - name: "Server Ready"
-    action: exec
-    cmd: "echo Server has been started successfully!"
+  ## ND Character & UI System
+  - action: download_file
+    url: https://github.com/ND-Framework/nd_characters/releases/latest/download/nd_characters.zip
+    path: ./tmp/nd_characters.zip
+  - action: unzip
+    src: ./tmp/nd_characters.zip
+    dest: ./resources/[nd]
+
+  - action: download_file
+    url: https://github.com/ND-Framework/nd_hud/releases/latest/download/nd_hud.zip
+    path: ./tmp/nd_hud.zip
+  - action: unzip
+    src: ./tmp/nd_hud.zip
+    dest: ./resources/[nd]
+
+  ## ND Jobs
+  - action: download_file
+    url: https://github.com/ND-Framework/nd_jobs/releases/latest/download/nd_jobs.zip
+    path: ./tmp/nd_jobs.zip
+  - action: unzip
+    src: ./tmp/nd_jobs.zip
+    dest: ./resources/[nd]
+
+  ## ND Police & EMS
+  - action: download_file
+    url: https://github.com/ND-Framework/nd_police/releases/latest/download/nd_police.zip
+    path: ./tmp/nd_police.zip
+  - action: unzip
+    src: ./tmp/nd_police.zip
+    dest: ./resources/[nd]
+
+  - action: download_file
+    url: https://github.com/ND-Framework/nd_ambulance/releases/latest/download/nd_ambulance.zip
+    path: ./tmp/nd_ambulance.zip
+  - action: unzip
+    src: ./tmp/nd_ambulance.zip
+    dest: ./resources/[nd]
+
+  ## ND Economy & Business
+  - action: download_file
+    url: https://github.com/ND-Framework/nd_banking/releases/latest/download/nd_banking.zip
+    path: ./tmp/nd_banking.zip
+  - action: unzip
+    src: ./tmp/nd_banking.zip
+    dest: ./resources/[nd]
+
+  - action: download_file
+    url: https://github.com/ND-Framework/nd_cityhall/releases/latest/download/nd_cityhall.zip
+    path: ./tmp/nd_cityhall.zip
+  - action: unzip
+    src: ./tmp/nd_cityhall.zip
+    dest: ./resources/[nd]
+
+  ## ND Crime & Heists
+  - action: download_file
+    url: https://github.com/ND-Framework/nd_robbery/releases/latest/download/nd_robbery.zip
+    path: ./tmp/nd_robbery.zip
+  - action: unzip
+    src: ./tmp/nd_robbery.zip
+    dest: ./resources/[nd]
+
+  - action: download_file
+    url: https://github.com/ND-Framework/nd_heists/releases/latest/download/nd_heists.zip
+    path: ./tmp/nd_heists.zip
+  - action: unzip
+    src: ./tmp/nd_heists.zip
+    dest: ./resources/[nd]
+
+  ## ND Vehicle & Fuel
+  - action: download_file
+    url: https://github.com/ND-Framework/nd_garages/releases/latest/download/nd_garages.zip
+    path: ./tmp/nd_garages.zip
+  - action: unzip
+    src: ./tmp/nd_garages.zip
+    dest: ./resources/[nd]
+
+  - action: download_file
+    url: https://github.com/ND-Framework/nd_fuel/releases/latest/download/nd_fuel.zip
+    path: ./tmp/nd_fuel.zip
+  - action: unzip
+    src: ./tmp/nd_fuel.zip
+    dest: ./resources/[nd]
+
+  ## Miscellaneous Features
+  - action: download_github
+    src: https://github.com/AvarianKnight/pma-voice
+    ref: main
+    dest: ./resources/pma-voice
+
+  - action: download_github
+    src: https://github.com/project-error/npwd
+    ref: main
+    dest: ./resources/npwd
+
+  - action: query_database
+    file: ./resources/npwd/import.sql
+
+  ## Loading Screen
+  - action: download_github
+    src: https://github.com/DokaDoka/pe-basicloading
+    ref: ox
+    dest: ./resources/[pe]/pe-basicloading
+
+  - action: replace_string
+    mode: all_vars
+    file:
+      - ./resources/[pe]/pe-basicloading/web/config.js
+
+  ## Clean Up
+  - action: remove_path
+    path: ./tmp
