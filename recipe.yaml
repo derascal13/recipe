@@ -12,12 +12,10 @@ dependencies:
 
 tasks:
   - name: "Start Database"
-    action: command
-    command: "start ox_mysql"
+    run: "ox_mysql start"
 
   - name: "Load Core Scripts"
-    action: command
-    command: |
+    run: |
       start nd_core
       start ox_lib
       start ox_target
@@ -25,53 +23,46 @@ tasks:
       start ox_mysql
 
   - name: "Load Character & UI System"
-    action: command
-    command: |
-      start nd_characters
-      start nd_appearance
-      start nd_spawn
-      start nd_hud
+    run: |
+      start nd_characters  # Sistem karakter bawaan ND Core
+      start nd_appearance  # Sistem penampilan karakter bawaan
+      start nd_spawn       # Sistem spawn karakter bawaan
+      start nd_hud         # Sistem HUD bawaan
 
   - name: "Load Economy & Business"
-    action: command
-    command: |
-      start nd_banking
-      start nd_cityhall
-      start nd_management
+    run: |
+      start nd_banking     # Sistem perbankan bawaan ND Core
+      start nd_cityhall    # Sistem City Hall bawaan
+      start nd_management  # Sistem manajemen bisnis bawaan
 
   - name: "Load Job System"
-    action: command
-    command: |
-      start nd_jobs
-      start nd_vehicleshop
-      start nd_police
-      start nd_ambulance
-      start nd_gangs
-      start nd_mafia
+    run: |
+      start nd_jobs        # Sistem pekerjaan bawaan
+      start nd_vehicleshop # Sistem dealer kendaraan bawaan
+      start nd_police      # Sistem pekerjaan polisi bawaan
+      start nd_ambulance   # Sistem pekerjaan medis bawaan
+      start nd_gangs       # Sistem geng bawaan
+      start nd_mafia       # Sistem mafia bawaan
 
   - name: "Load Crime & Heist System"
-    action: command
-    command: |
-      start nd_drugs
-      start nd_prison
-      start nd_robbery
-      start nd_heists
-      start nd_weaponcraft
+    run: |
+      start nd_drugs       # Sistem narkoba bawaan
+      start nd_prison      # Sistem penjara bawaan
+      start nd_robbery     # Sistem perampokan bawaan
+      start nd_heists      # Sistem heist bawaan
+      start nd_weaponcraft # Sistem crafting senjata bawaan
 
   - name: "Load Vehicle & Fuel System"
-    action: command
-    command: |
-      start nd_garages
-      start nd_fuel
+    run: |
+      start nd_garages     # Sistem garasi bawaan
+      start nd_fuel        # Sistem bahan bakar bawaan
 
   - name: "Load Miscellaneous Features"
-    action: command
-    command: |
-      start easyadmin
-      start nd_logs
-      start nd_animations
-      start dpemotes
+    run: |
+      start easyadmin      # Admin tool
+      start nd_logs        # Sistem logging bawaan
+      start nd_animations  # Sistem animasi bawaan
+      start dpemotes       # Emote system
 
   - name: "Server Ready"
-    action: command
-    command: "echo Server has been started successfully!"
+    run: "echo Server has been started successfully!"
