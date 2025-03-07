@@ -1,0 +1,68 @@
+name: "My FiveM RP Server - ND Core"
+author: "YourName"
+version: "1.0"
+description: "FiveM Full RP Server using ND Core & OX Resources"
+
+dependencies:
+  - "nd_core"
+  - "ox_lib"
+  - "ox_mysql"
+  - "ox_target"
+  - "ox_inventory"
+
+tasks:
+  - name: "Start Database"
+    run: "ox_mysql start"
+
+  - name: "Load Core Scripts"
+    run: |
+      start nd_core
+      start ox_lib
+      start ox_target
+      start ox_inventory
+      start ox_mysql
+
+  - name: "Load Character & UI System"
+    run: |
+      start nd_characters  # Sistem karakter bawaan ND Core
+      start nd_appearance  # Sistem penampilan karakter bawaan
+      start nd_spawn       # Sistem spawn karakter bawaan
+      start nd_hud         # Sistem HUD bawaan
+
+  - name: "Load Economy & Business"
+    run: |
+      start nd_banking     # Sistem perbankan bawaan ND Core
+      start nd_cityhall    # Sistem City Hall bawaan
+      start nd_management  # Sistem manajemen bisnis bawaan
+
+  - name: "Load Job System"
+    run: |
+      start nd_jobs        # Sistem pekerjaan bawaan
+      start nd_vehicleshop # Sistem dealer kendaraan bawaan
+      start nd_police      # Sistem pekerjaan polisi bawaan
+      start nd_ambulance   # Sistem pekerjaan medis bawaan
+      start nd_gangs       # Sistem geng bawaan
+      start nd_mafia       # Sistem mafia bawaan
+
+  - name: "Load Crime & Heist System"
+    run: |
+      start nd_drugs       # Sistem narkoba bawaan
+      start nd_prison      # Sistem penjara bawaan
+      start nd_robbery     # Sistem perampokan bawaan
+      start nd_heists      # Sistem heist bawaan
+      start nd_weaponcraft # Sistem crafting senjata bawaan
+
+  - name: "Load Vehicle & Fuel System"
+    run: |
+      start nd_garages     # Sistem garasi bawaan
+      start nd_fuel        # Sistem bahan bakar bawaan
+
+  - name: "Load Miscellaneous Features"
+    run: |
+      start easyadmin      # Admin tool
+      start nd_logs        # Sistem logging bawaan
+      start nd_animations  # Sistem animasi bawaan
+      start dpemotes       # Emote system
+
+  - name: "Server Ready"
+    run: "echo Server has been started successfully!"
