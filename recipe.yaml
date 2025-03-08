@@ -1,173 +1,167 @@
-$engine: 3
-$minFxVersion: 7290
-$onesync: on
-name: nd_core
-version: 1.0.0
-author: YourName
-description: The official recipe for ND Core.
+name: "Qbox Fully Roleplay - Illenium Appearance"
+author: "Nama Kamu"
+description: "Server Qbox yang stabil dengan fitur fully roleplay dan Illenium Appearance."
+version: 1.1
 
 tasks:
-  ## Persiapan Recipe
-  - action: connect_database
+  - action: "download_github"
+    url: "https://github.com/qbox-project/qbox"
+    branch: "main"
+    path: "resources/[core]/qbox_core"
 
-  ## Default CFX Resources
-  - action: download_github
-    src: https://github.com/citizenfx/cfx-server-data
-    ref: master
-    subpath: resources
-    dest: ./resources/[cfx]
+  - action: "download_github"
+    url: "https://github.com/overextended/ox_lib"
+    branch: "main"
+    path: "resources/[core]/ox_lib"
 
-  ## ND Core
-  - action: download_file
-    url: https://github.com/ND-Framework/nd_core/releases/latest/download/nd_core.zip
-    path: ./tmp/nd_core.zip
-  - action: unzip
-    src: ./tmp/nd_core.zip
-    dest: ./resources/[nd]
+  - action: "download_github"
+    url: "https://github.com/overextended/ox_target"
+    branch: "main"
+    path: "resources/[core]/ox_target"
 
-  - action: query_database
-    file: ./resources/[nd]/nd_core/sql/install.sql
+  - action: "download_github"
+    url: "https://github.com/overextended/ox_inventory"
+    branch: "main"
+    path: "resources/[core]/ox_inventory"
 
-  ## OX MySQL
-  - action: download_file
-    url: https://github.com/overextended/oxmysql/releases/latest/download/oxmysql.zip
-    path: ./tmp/oxmysql.zip
-  - action: unzip
-    src: ./tmp/oxmysql.zip
-    dest: ./resources/[ox]
+  - action: "download_github"
+    url: "https://github.com/overextended/oxmysql"
+    branch: "main"
+    path: "resources/[core]/oxmysql"
 
-  ## OX Library
-  - action: download_file
-    url: https://github.com/overextended/ox_lib/releases/latest/download/ox_lib.zip
-    path: ./tmp/ox_lib.zip
-  - action: unzip
-    src: ./tmp/ox_lib.zip
-    dest: ./resources/[ox]
+  - action: "download_github"
+    url: "https://github.com/qbox-project/qbox_jobs"
+    branch: "main"
+    path: "resources/[jobs]/qbox_jobs"
 
-  ## OX Inventory
-  - action: download_file
-    url: https://github.com/overextended/ox_inventory/releases/latest/download/ox_inventory.zip
-    path: ./tmp/ox_inventory.zip
-  - action: unzip
-    src: ./tmp/ox_inventory.zip
-    dest: ./resources/[ox]
+  - action: "download_github"
+    url: "https://github.com/qbox-project/qbox_police"
+    branch: "main"
+    path: "resources/[jobs]/qbox_police"
 
-  ## OX Target
-  - action: download_file
-    url: https://github.com/overextended/ox_target/releases/latest/download/ox_target.zip
-    path: ./tmp/ox_target.zip
-  - action: unzip
-    src: ./tmp/ox_target.zip
-    dest: ./resources/[ox]
+  - action: "download_github"
+    url: "https://github.com/qbox-project/qbox_ems"
+    branch: "main"
+    path: "resources/[jobs]/qbox_ems"
 
-  ## ND Character & UI System
-  - action: download_file
-    url: https://github.com/ND-Framework/nd_characters/releases/latest/download/nd_characters.zip
-    path: ./tmp/nd_characters.zip
-  - action: unzip
-    src: ./tmp/nd_characters.zip
-    dest: ./resources/[nd]
+  - action: "download_github"
+    url: "https://github.com/qbox-project/qbox_mechanic"
+    branch: "main"
+    path: "resources/[jobs]/qbox_mechanic"
 
-  - action: download_file
-    url: https://github.com/ND-Framework/nd_hud/releases/latest/download/nd_hud.zip
-    path: ./tmp/nd_hud.zip
-  - action: unzip
-    src: ./tmp/nd_hud.zip
-    dest: ./resources/[nd]
+  - action: "download_github"
+    url: "https://github.com/qbox-project/qbox_garages"
+    branch: "main"
+    path: "resources/[vehicles]/qbox_garages"
 
-  ## ND Jobs
-  - action: download_file
-    url: https://github.com/ND-Framework/nd_jobs/releases/latest/download/nd_jobs.zip
-    path: ./tmp/nd_jobs.zip
-  - action: unzip
-    src: ./tmp/nd_jobs.zip
-    dest: ./resources/[nd]
+  - action: "download_github"
+    url: "https://github.com/qbox-project/qbox_vehicleshop"
+    branch: "main"
+    path: "resources/[vehicles]/qbox_vehicleshop"
 
-  ## ND Police & EMS
-  - action: download_file
-    url: https://github.com/ND-Framework/nd_police/releases/latest/download/nd_police.zip
-    path: ./tmp/nd_police.zip
-  - action: unzip
-    src: ./tmp/nd_police.zip
-    dest: ./resources/[nd]
+  - action: "download_github"
+    url: "https://github.com/iLLeniumStudios/illenium-appearance"
+    branch: "main"
+    path: "resources/[interactions]/illenium-appearance"
 
-  - action: download_file
-    url: https://github.com/ND-Framework/nd_ambulance/releases/latest/download/nd_ambulance.zip
-    path: ./tmp/nd_ambulance.zip
-  - action: unzip
-    src: ./tmp/nd_ambulance.zip
-    dest: ./resources/[nd]
+  - action: "download_github"
+    url: "https://github.com/qbox-project/qbox_barbershop"
+    branch: "main"
+    path: "resources/[interactions]/qbox_barbershop"
 
-  ## ND Economy & Business
-  - action: download_file
-    url: https://github.com/ND-Framework/nd_banking/releases/latest/download/nd_banking.zip
-    path: ./tmp/nd_banking.zip
-  - action: unzip
-    src: ./tmp/nd_banking.zip
-    dest: ./resources/[nd]
+  - action: "download_github"
+    url: "https://github.com/qbox-project/qbox_hud"
+    branch: "main"
+    path: "resources/[ui]/qbox_hud"
 
-  - action: download_file
-    url: https://github.com/ND-Framework/nd_cityhall/releases/latest/download/nd_cityhall.zip
-    path: ./tmp/nd_cityhall.zip
-  - action: unzip
-    src: ./tmp/nd_cityhall.zip
-    dest: ./resources/[nd]
+  - action: "download_github"
+    url: "https://github.com/qbox-project/qbox_store"
+    branch: "main"
+    path: "resources/[economy]/qbox_store"
 
-  ## ND Crime & Heists
-  - action: download_file
-    url: https://github.com/ND-Framework/nd_robbery/releases/latest/download/nd_robbery.zip
-    path: ./tmp/nd_robbery.zip
-  - action: unzip
-    src: ./tmp/nd_robbery.zip
-    dest: ./resources/[nd]
+  - action: "download_github"
+    url: "https://github.com/qbox-project/qbox_fishing"
+    branch: "main"
+    path: "resources/[economy]/qbox_fishing"
 
-  - action: download_file
-    url: https://github.com/ND-Framework/nd_heists/releases/latest/download/nd_heists.zip
-    path: ./tmp/nd_heists.zip
-  - action: unzip
-    src: ./tmp/nd_heists.zip
-    dest: ./resources/[nd]
+  - action: "download_github"
+    url: "https://github.com/qbox-project/qbox_radio"
+    branch: "main"
+    path: "resources/[interactions]/qbox_radio"
 
-  ## ND Vehicle & Fuel
-  - action: download_file
-    url: https://github.com/ND-Framework/nd_garages/releases/latest/download/nd_garages.zip
-    path: ./tmp/nd_garages.zip
-  - action: unzip
-    src: ./tmp/nd_garages.zip
-    dest: ./resources/[nd]
+  - action: "download_github"
+    url: "https://github.com/qbox-project/qbox_houses"
+    branch: "main"
+    path: "resources/[properties]/qbox_houses"
 
-  - action: download_file
-    url: https://github.com/ND-Framework/nd_fuel/releases/latest/download/nd_fuel.zip
-    path: ./tmp/nd_fuel.zip
-  - action: unzip
-    src: ./tmp/nd_fuel.zip
-    dest: ./resources/[nd]
+  - action: "download_github"
+    url: "https://github.com/qbox-project/qbox_properties"
+    branch: "main"
+    path: "resources/[properties]/qbox_properties"
 
-  ## Miscellaneous Features
-  - action: download_github
-    src: https://github.com/AvarianKnight/pma-voice
-    ref: main
-    dest: ./resources/pma-voice
+  - action: "download_github"
+    url: "https://github.com/qbox-project/qbox_adminmenu"
+    branch: "main"
+    path: "resources/[admin]/qbox_adminmenu"
 
-  - action: download_github
-    src: https://github.com/project-error/npwd
-    ref: main
-    dest: ./resources/npwd
+  - action: "download_github"
+    url: "https://github.com/qbox-project/qbox_weaponshop"
+    branch: "main"
+    path: "resources/[interactions]/qbox_weaponshop"
 
-  - action: query_database
-    file: ./resources/npwd/import.sql
+  - action: "download_github"
+    url: "https://github.com/qbox-project/qbox_drugs"
+    branch: "main"
+    path: "resources/[illegal]/qbox_drugs"
 
-  ## Loading Screen
-  - action: download_github
-    src: https://github.com/DokaDoka/pe-basicloading
-    ref: ox
-    dest: ./resources/[pe]/pe-basicloading
+  - action: "download_github"
+    url: "https://github.com/qbox-project/qbox_bank"
+    branch: "main"
+    path: "resources/[economy]/qbox_bank"
 
-  - action: replace_string
-    mode: all_vars
-    file:
-      - ./resources/[pe]/pe-basicloading/web/config.js
-
-  ## Clean Up
-  - action: remove_path
-    path: ./tmp
+  - action: "ensure"
+    resource: "[core]/qbox_core"
+  - action: "ensure"
+    resource: "[core]/ox_lib"
+  - action: "ensure"
+    resource: "[core]/ox_target"
+  - action: "ensure"
+    resource: "[core]/ox_inventory"
+  - action: "ensure"
+    resource: "[core]/oxmysql"
+  - action: "ensure"
+    resource: "[jobs]/qbox_jobs"
+  - action: "ensure"
+    resource: "[jobs]/qbox_police"
+  - action: "ensure"
+    resource: "[jobs]/qbox_ems"
+  - action: "ensure"
+    resource: "[jobs]/qbox_mechanic"
+  - action: "ensure"
+    resource: "[vehicles]/qbox_garages"
+  - action: "ensure"
+    resource: "[vehicles]/qbox_vehicleshop"
+  - action: "ensure"
+    resource: "[interactions]/illenium-appearance"
+  - action: "ensure"
+    resource: "[interactions]/qbox_barbershop"
+  - action: "ensure"
+    resource: "[ui]/qbox_hud"
+  - action: "ensure"
+    resource: "[economy]/qbox_store"
+  - action: "ensure"
+    resource: "[economy]/qbox_fishing"
+  - action: "ensure"
+    resource: "[interactions]/qbox_radio"
+  - action: "ensure"
+    resource: "[properties]/qbox_houses"
+  - action: "ensure"
+    resource: "[properties]/qbox_properties"
+  - action: "ensure"
+    resource: "[admin]/qbox_adminmenu"
+  - action: "ensure"
+    resource: "[interactions]/qbox_weaponshop"
+  - action: "ensure"
+    resource: "[illegal]/qbox_drugs"
+  - action: "ensure"
+    resource: "[economy]/qbox_bank"
