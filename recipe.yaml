@@ -4,71 +4,75 @@ description: "Server Qbox yang stabil dengan fitur fully roleplay dan Illenium A
 version: 1.1
 
 tasks:
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/qbox-project/qbox.git resources/[core]/qbox_core"
+  - action: exec
+    command: |
+      git clone --depth=1 https://github.com/qbox-project/qbox.git resources/[core]/qbox_core
+      git clone --depth=1 https://github.com/overextended/ox_lib.git resources/[core]/ox_lib
+      git clone --depth=1 https://github.com/overextended/ox_target.git resources/[core]/ox_target
+      git clone --depth=1 https://github.com/overextended/ox_inventory.git resources/[core]/ox_inventory
+      git clone --depth=1 https://github.com/overextended/oxmysql.git resources/[core]/oxmysql
+      git clone --depth=1 https://github.com/qbox-project/qbox_jobs.git resources/[jobs]/qbox_jobs
+      git clone --depth=1 https://github.com/qbox-project/qbox_police.git resources/[jobs]/qbox_police
+      git clone --depth=1 https://github.com/qbox-project/qbox_ems.git resources/[jobs]/qbox_ems
+      git clone --depth=1 https://github.com/qbox-project/qbox_mechanic.git resources/[jobs]/qbox_mechanic
+      git clone --depth=1 https://github.com/qbox-project/qbox_garages.git resources/[vehicles]/qbox_garages
+      git clone --depth=1 https://github.com/qbox-project/qbox_vehicleshop.git resources/[vehicles]/qbox_vehicleshop
+      git clone --depth=1 https://github.com/iLLeniumStudios/illenium-appearance.git resources/[interactions]/illenium-appearance
+      git clone --depth=1 https://github.com/qbox-project/qbox_barbershop.git resources/[interactions]/qbox_barbershop
+      git clone --depth=1 https://github.com/qbox-project/qbox_hud.git resources/[ui]/qbox_hud
+      git clone --depth=1 https://github.com/qbox-project/qbox_store.git resources/[economy]/qbox_store
+      git clone --depth=1 https://github.com/qbox-project/qbox_fishing.git resources/[economy]/qbox_fishing
+      git clone --depth=1 https://github.com/qbox-project/qbox_radio.git resources/[interactions]/qbox_radio
+      git clone --depth=1 https://github.com/qbox-project/qbox_houses.git resources/[properties]/qbox_houses
+      git clone --depth=1 https://github.com/qbox-project/qbox_properties.git resources/[properties]/qbox_properties
+      git clone --depth=1 https://github.com/qbox-project/qbox_adminmenu.git resources/[admin]/qbox_adminmenu
+      git clone --depth=1 https://github.com/qbox-project/qbox_weaponshop.git resources/[interactions]/qbox_weaponshop
+      git clone --depth=1 https://github.com/qbox-project/qbox_drugs.git resources/[illegal]/qbox_drugs
+      git clone --depth=1 https://github.com/qbox-project/qbox_bank.git resources/[economy]/qbox_bank
 
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/overextended/ox_lib.git resources/[core]/ox_lib"
-
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/overextended/ox_target.git resources/[core]/ox_target"
-
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/overextended/ox_inventory.git resources/[core]/ox_inventory"
-
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/overextended/oxmysql.git resources/[core]/oxmysql"
-
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/qbox-project/qbox_jobs.git resources/[jobs]/qbox_jobs"
-
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/qbox-project/qbox_police.git resources/[jobs]/qbox_police"
-
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/qbox-project/qbox_ems.git resources/[jobs]/qbox_ems"
-
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/qbox-project/qbox_mechanic.git resources/[jobs]/qbox_mechanic"
-
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/qbox-project/qbox_garages.git resources/[vehicles]/qbox_garages"
-
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/qbox-project/qbox_vehicleshop.git resources/[vehicles]/qbox_vehicleshop"
-
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/iLLeniumStudios/illenium-appearance.git resources/[interactions]/illenium-appearance"
-
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/qbox-project/qbox_barbershop.git resources/[interactions]/qbox_barbershop"
-
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/qbox-project/qbox_hud.git resources/[ui]/qbox_hud"
-
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/qbox-project/qbox_store.git resources/[economy]/qbox_store"
-
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/qbox-project/qbox_fishing.git resources/[economy]/qbox_fishing"
-
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/qbox-project/qbox_radio.git resources/[interactions]/qbox_radio"
-
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/qbox-project/qbox_houses.git resources/[properties]/qbox_houses"
-
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/qbox-project/qbox_properties.git resources/[properties]/qbox_properties"
-
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/qbox-project/qbox_adminmenu.git resources/[admin]/qbox_adminmenu"
-
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/qbox-project/qbox_weaponshop.git resources/[interactions]/qbox_weaponshop"
-
-  - action: "exec"
-    command: "git clone --depth=1 https://github.com/qbox-project/qbox_drugs.git resources/[illegal]/qbox_drugs"
-
-  - action: "exec"
-    command: "git clone --depth=1 https://github
+  - action: ensure
+    resource: "[core]/qbox_core"
+  - action: ensure
+    resource: "[core]/ox_lib"
+  - action: ensure
+    resource: "[core]/ox_target"
+  - action: ensure
+    resource: "[core]/ox_inventory"
+  - action: ensure
+    resource: "[core]/oxmysql"
+  - action: ensure
+    resource: "[jobs]/qbox_jobs"
+  - action: ensure
+    resource: "[jobs]/qbox_police"
+  - action: ensure
+    resource: "[jobs]/qbox_ems"
+  - action: ensure
+    resource: "[jobs]/qbox_mechanic"
+  - action: ensure
+    resource: "[vehicles]/qbox_garages"
+  - action: ensure
+    resource: "[vehicles]/qbox_vehicleshop"
+  - action: ensure
+    resource: "[interactions]/illenium-appearance"
+  - action: ensure
+    resource: "[interactions]/qbox_barbershop"
+  - action: ensure
+    resource: "[ui]/qbox_hud"
+  - action: ensure
+    resource: "[economy]/qbox_store"
+  - action: ensure
+    resource: "[economy]/qbox_fishing"
+  - action: ensure
+    resource: "[interactions]/qbox_radio"
+  - action: ensure
+    resource: "[properties]/qbox_houses"
+  - action: ensure
+    resource: "[properties]/qbox_properties"
+  - action: ensure
+    resource: "[admin]/qbox_adminmenu"
+  - action: ensure
+    resource: "[interactions]/qbox_weaponshop"
+  - action: ensure
+    resource: "[illegal]/qbox_drugs"
+  - action: ensure
+    resource: "[economy]/qbox_bank"
